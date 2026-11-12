@@ -926,6 +926,14 @@ main {
   transition: transform 0.35s ease;
 }
 
+/* Captura real del reproductor: conserva su proporción y nitidez. */
+.game-screen img.project-shot {
+  aspect-ratio: auto;
+  object-fit: contain;
+  image-rendering: auto;
+  background: #000000;
+}
+
 .game:hover .game-screen svg,
 .game:hover .game-screen img {
   transform: scale(1.03);
