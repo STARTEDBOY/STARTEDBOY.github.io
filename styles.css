@@ -895,6 +895,8 @@ main {
 
 .game-screen {
   position: relative;
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid var(--line);
   background: var(--black-3);
   overflow: hidden;
@@ -1033,6 +1035,43 @@ main {
   width: 7px;
   height: 7px;
   background: var(--white);
+}
+
+.game-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+.game-footer p.project-status {
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+}
+
+.game-link {
+  flex: none;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: var(--white);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.game-link:hover,
+.game-link:focus-visible {
+  border-bottom-color: var(--white);
 }
 
 /* ---------- Redes sociales ---------- */
