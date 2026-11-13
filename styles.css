@@ -939,6 +939,137 @@ main {
   transform: scale(1.03);
 }
 
+/* ---------- CRT de la captura del reproductor ---------- */
+
+.game-screen.crt-screen {
+  background:
+    radial-gradient(120% 100% at 50% 0%, #10151c 0%, #04070a 72%);
+  isolation: isolate;
+}
+
+/* Cristal: viñeta, reflejo y brillo interior. */
+.game-screen.crt-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      115% 95% at 50% 48%,
+      transparent 56%,
+      rgba(0, 0, 0, 0.45) 100%
+    ),
+    linear-gradient(
+      118deg,
+      rgba(210, 240, 255, 0.11) 0%,
+      rgba(210, 240, 255, 0.035) 16%,
+      transparent 32%
+    );
+  box-shadow:
+    inset 0 0 58px rgba(0, 0, 0, 0.55),
+    inset 0 0 16px rgba(110, 210, 255, 0.07);
+}
+
+/* Líneas de barrido finas + máscara de fósforo RGB. */
+.game-screen.crt-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.22) 3px,
+      rgba(0, 0, 0, 0.22) 4px
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(255, 60, 80, 0.04) 0px,
+      rgba(255, 60, 80, 0.04) 1px,
+      rgba(60, 255, 140, 0.028) 1px,
+      rgba(60, 255, 140, 0.028) 2px,
+      rgba(80, 140, 255, 0.04) 2px,
+      rgba(80, 140, 255, 0.04) 3px
+    );
+  animation: crt-flicker 6s steps(60) infinite;
+}
+
+/* Banda de refresco que recorre la pantalla. */
+.crt-roll {
+  position: absolute;
+  top: -32%;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  height: 26%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(140, 220, 255, 0.035) 32%,
+    rgba(190, 245, 255, 0.09) 50%,
+    rgba(140, 220, 255, 0.035) 68%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  animation: crt-roll 9s linear infinite;
+  will-change: transform;
+}
+
+/* La captura conserva todo el color y gana un poco de brillo de fósforo. */
+.game-screen.crt-screen img.project-shot {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: auto;
+  object-fit: contain;
+  image-rendering: auto;
+  background: #000000;
+  filter: saturate(1.18) contrast(1.06) brightness(1.04);
+}
+
+@keyframes crt-roll {
+  from {
+    transform: translateY(-130%);
+  }
+  to {
+    transform: translateY(570%);
+  }
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 0.94;
+  }
+  3% {
+    opacity: 0.88;
+  }
+  7% {
+    opacity: 0.97;
+  }
+  48% {
+    opacity: 0.92;
+  }
+  52% {
+    opacity: 0.98;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-screen.crt-screen::after {
+    animation: none;
+  }
+
+  .crt-roll {
+    animation: none;
+    opacity: 0.3;
+  }
+}
+
 .game-body {
   display: flex;
   flex-direction: column;
