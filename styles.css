@@ -695,6 +695,20 @@ main {
   background: transparent;
 }
 
+#sobre-mi .level,
+#proyectos .level,
+#redes .level,
+#sobre-mi .about,
+#sobre-mi .about-tags span,
+#sobre-mi .about-media,
+#proyectos .projects-note,
+#proyectos .game,
+#proyectos .game-screen,
+#redes .social-card,
+#redes .social-icon {
+  background: #000;
+}
+
 .section-head {
   display: flex;
   align-items: center;
