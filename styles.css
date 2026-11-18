@@ -689,6 +689,12 @@ main {
   padding-bottom: 56px;
 }
 
+#sobre-mi,
+#proyectos,
+#redes {
+  background: var(--black);
+}
+
 .section-head {
   display: flex;
   align-items: center;
