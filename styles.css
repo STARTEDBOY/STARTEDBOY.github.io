@@ -692,7 +692,7 @@ main {
 #sobre-mi,
 #proyectos,
 #redes {
-  background: var(--black);
+  background: transparent;
 }
 
 .section-head {
