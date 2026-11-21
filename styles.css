@@ -919,6 +919,7 @@ main {
   aspect-ratio: 1 / 1;
   order: 2;
   align-self: center;
+  margin-right: 24px;
   border: 2px solid var(--white);
   background: var(--black-3);
 }
@@ -1490,6 +1491,8 @@ main {
     width: min(100%, 260px);
     height: auto;
     align-self: center;
+    margin-right: 0;
+    margin-bottom: 24px;
     border: 2px solid var(--white);
   }
 
