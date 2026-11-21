@@ -975,6 +975,16 @@ main {
   background: #000000;
 }
 
+/* Icono del proyecto: tamaño contenido y centrado. */
+.game-screen img.project-shot.project-shot-icon {
+  width: auto;
+  max-width: min(100%, 240px);
+  max-height: 240px;
+  margin: auto;
+  padding: 20px;
+  background: transparent;
+}
+
 .game:hover .game-screen svg,
 .game:hover .game-screen img {
   transform: scale(1.03);
