@@ -901,18 +901,21 @@ main {
 .game-featured {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-}
-
-.game-featured .game-screen {
-  border-bottom: 0;
-  border-right: 2px solid var(--line);
-  background: var(--black-3);
+  grid-template-columns: 0.85fr 1.15fr;
 }
 
 .game-featured .game-body {
+  order: 1;
   justify-content: center;
   padding: 24px;
+}
+
+.game-featured .game-screen {
+  order: 2;
+  border-bottom: 0;
+  border-left: 2px solid var(--line);
+  border-right: 0;
+  background: var(--black-3);
 }
 
 .game-featured .game-body h3 {
@@ -1478,8 +1481,10 @@ main {
   }
 
   .game-featured .game-screen {
+    border-left: 0;
     border-right: 0;
-    border-bottom: 2px solid var(--line);
+    border-top: 2px solid var(--line);
+    border-bottom: 0;
   }
 
   .game-featured .game-body {
@@ -1494,7 +1499,9 @@ main {
   }
 
   .game-featured .game-screen {
-    border-right: 2px solid var(--line);
+    border-left: 2px solid var(--line);
+    border-right: 0;
+    border-top: 0;
     border-bottom: 0;
   }
 }
