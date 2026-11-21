@@ -902,7 +902,7 @@ main {
   grid-column: 1 / -1;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
 }
 
 .game-featured .game-body {
@@ -915,13 +915,11 @@ main {
 
 .game-featured .game-screen {
   flex: 0 0 auto;
-  width: 220px;
+  width: auto;
   aspect-ratio: 1 / 1;
   order: 2;
-  align-self: center;
-  border-bottom: 0;
-  border-left: 2px solid var(--line);
-  border-right: 0;
+  align-self: stretch;
+  border: 2px solid var(--white);
   background: var(--black-3);
 }
 
@@ -1490,11 +1488,9 @@ main {
 
   .game-featured .game-screen {
     width: min(100%, 260px);
+    height: auto;
     align-self: center;
-    border-left: 0;
-    border-right: 0;
-    border-top: 2px solid var(--line);
-    border-bottom: 0;
+    border: 2px solid var(--white);
   }
 
   .game-featured .game-body {
@@ -1506,15 +1502,13 @@ main {
 @media (min-width: 621px) and (max-width: 900px) {
   .game-featured {
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
   }
 
   .game-featured .game-screen {
-    width: 200px;
-    border-left: 2px solid var(--line);
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
+    width: auto;
+    align-self: stretch;
+    border: 2px solid var(--white);
   }
 }
 
