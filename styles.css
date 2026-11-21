@@ -900,18 +900,25 @@ main {
 
 .game-featured {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .game-featured .game-body {
+  flex: 1 1 0;
+  min-width: 0;
   order: 1;
   justify-content: center;
   padding: 24px;
 }
 
 .game-featured .game-screen {
+  flex: 0 0 auto;
+  width: 220px;
+  aspect-ratio: 1 / 1;
   order: 2;
+  align-self: center;
   border-bottom: 0;
   border-left: 2px solid var(--line);
   border-right: 0;
@@ -978,13 +985,13 @@ main {
   background: #000000;
 }
 
-/* Icono del proyecto: tamaño contenido y centrado. */
+/* Icono del proyecto: encaja en su contenedor sin deformarse. */
 .game-screen img.project-shot.project-shot-icon {
-  width: auto;
-  max-width: min(100%, 240px);
-  max-height: 240px;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   padding: 20px;
+  object-fit: contain;
   background: transparent;
 }
 
@@ -1477,10 +1484,13 @@ main {
   }
 
   .game-featured {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .game-featured .game-screen {
+    width: min(100%, 260px);
+    align-self: center;
     border-left: 0;
     border-right: 0;
     border-top: 2px solid var(--line);
@@ -1495,10 +1505,12 @@ main {
 /* En pantallas medianas mantenemos columnas para compactar */
 @media (min-width: 621px) and (max-width: 900px) {
   .game-featured {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    align-items: center;
   }
 
   .game-featured .game-screen {
+    width: 200px;
     border-left: 2px solid var(--line);
     border-right: 0;
     border-top: 0;
